@@ -1,0 +1,64 @@
+{
+	"name": "DE086_blobstorage_csv",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "DE086_AzureBlobStorage",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"fileName": "startup.csv",
+				"container": "folder1"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": [
+			{
+				"name": "Sr_No",
+				"type": "String"
+			},
+			{
+				"name": "Date",
+				"type": "String"
+			},
+			{
+				"name": "Startup_Name",
+				"type": "String"
+			},
+			{
+				"name": "Industry_Vertical",
+				"type": "String"
+			},
+			{
+				"name": "SubVertical",
+				"type": "String"
+			},
+			{
+				"name": "City",
+				"type": "String"
+			},
+			{
+				"name": "Investors_Name",
+				"type": "String"
+			},
+			{
+				"name": "InvestmentnType",
+				"type": "String"
+			},
+			{
+				"name": "Amount_in_USD",
+				"type": "String"
+			},
+			{
+				"name": "Remarks",
+				"type": "String"
+			}
+		]
+	}
+}
