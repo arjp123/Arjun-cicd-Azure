@@ -1,0 +1,9 @@
+{
+	"name": "ArjunDey-CICD-Poc",
+	"location": "eastus",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "749f9d50-12b1-4d73-a26a-ff90b6248f90",
+		"tenantId": "e4ca7ce8-c04d-4047-b712-020b9ab3fb1c"
+	}
+}
