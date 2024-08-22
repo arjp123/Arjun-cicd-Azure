@@ -1,10 +1,6 @@
 {
 	"name": "DE086_blobstorage_csv",
 	"properties": {
-		"linkedServiceName": {
-			"referenceName": "DE086_AzureBlobStorage",
-			"type": "LinkedServiceReference"
-		},
 		"annotations": [],
 		"type": "DelimitedText",
 		"typeProperties": {
