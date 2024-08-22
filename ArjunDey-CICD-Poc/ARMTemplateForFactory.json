@@ -6,6 +6,10 @@
 			"type": "string",
 			"metadata": "Data Factory name",
 			"defaultValue": "ArjunDey-CICD-Poc"
+		},
+		"DE086_AzureBlobStorage_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'DE086_AzureBlobStorage'"
 		}
 	},
 	"variables": {
@@ -19,7 +23,7 @@
 			"properties": {
 				"activities": [
 					{
-						"name": "Wait1-Activity1",
+						"name": "Wait1-Activity123",
 						"type": "Wait",
 						"dependsOn": [],
 						"userProperties": [],
@@ -32,6 +36,89 @@
 					"elapsedTimeMetric": {}
 				},
 				"annotations": []
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/DE086_blobstorage_csv')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "DE086_AzureBlobStorage",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "DelimitedText",
+				"typeProperties": {
+					"location": {
+						"type": "AzureBlobStorageLocation",
+						"fileName": "startup.csv",
+						"container": "folder1"
+					},
+					"columnDelimiter": ",",
+					"escapeChar": "\\",
+					"firstRowAsHeader": true,
+					"quoteChar": "\""
+				},
+				"schema": [
+					{
+						"name": "Sr_No",
+						"type": "String"
+					},
+					{
+						"name": "Date",
+						"type": "String"
+					},
+					{
+						"name": "Startup_Name",
+						"type": "String"
+					},
+					{
+						"name": "Industry_Vertical",
+						"type": "String"
+					},
+					{
+						"name": "SubVertical",
+						"type": "String"
+					},
+					{
+						"name": "City",
+						"type": "String"
+					},
+					{
+						"name": "Investors_Name",
+						"type": "String"
+					},
+					{
+						"name": "InvestmentnType",
+						"type": "String"
+					},
+					{
+						"name": "Amount_in_USD",
+						"type": "String"
+					},
+					{
+						"name": "Remarks",
+						"type": "String"
+					}
+				]
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/linkedServices/DE086_AzureBlobStorage')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/DE086_AzureBlobStorage')]",
+			"type": "Microsoft.DataFactory/factories/linkedServices",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"description": "DE086 For CSV File poc azure cicd",
+				"annotations": [],
+				"type": "AzureBlobStorage",
+				"typeProperties": {
+					"connectionString": "[parameters('DE086_AzureBlobStorage_connectionString')]"
+				}
 			},
 			"dependsOn": []
 		}
