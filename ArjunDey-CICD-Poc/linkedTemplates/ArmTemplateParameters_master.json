@@ -5,9 +5,6 @@
 		"factoryName": {
 			"value": "ArjunDey-CICD-Poc"
 		},
-		"DE086_AzureBlobStorage_connectionString": {
-			"value": ""
-		},
 		"containerUri": {
 			"value": ""
 		},
